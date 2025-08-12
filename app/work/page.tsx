@@ -51,21 +51,21 @@ const websites = [
 const dashboards = [
   {
     title: 'Sales Analytics Dashboard',
-    slug: 'sales-analytics-dashboard',
+    slug: 'P1',
     description: 'Interactive dashboard visualizing sales performance across multiple regions. Features drill-down capabilities, predictive analytics, and automated reporting that reduced manual analysis time by 75%.',
     tech: ['Power BI', 'SQL Server', 'Python', 'DAX'],
     metrics: ['500K+ data points', '15 KPIs tracked', 'Real-time updates'],
   },
   {
     title: 'Marketing Campaign Tracker',
-    slug: 'marketing-campaign-tracker',
+    slug: 'P2',
     description: 'Comprehensive marketing analytics platform tracking campaign performance across channels. Integrated with Google Analytics, Facebook Ads, and email marketing platforms for unified reporting.',
     tech: ['Tableau', 'Google Analytics', 'BigQuery', 'R'],
     metrics: ['20+ data sources', '30% ROI improvement', 'Automated alerts'],
   },
   {
     title: 'Financial Performance Monitor',
-    slug: 'financial-performance-monitor',
+    slug: 'P3',
     description: 'Real-time financial dashboard for C-suite executives featuring revenue forecasting, expense tracking, and profitability analysis. Helped identify $2M in cost-saving opportunities.',
     tech: ['Looker', 'Snowflake', 'dbt', 'Airflow'],
     metrics: ['99.9% uptime', '< 2s load time', 'Daily refreshes'],
@@ -149,7 +149,7 @@ export default function WorkPage() {
           {dashboards.map((dashboard, index) => (
             <Link
               key={index}
-              href={`/posts/${dashboard.slug}`}
+              href={`/posts/${dashboard.slug}/page`}
               className="group block border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <h3 className="font-medium text-lg mb-2">{dashboard.title}</h3>
