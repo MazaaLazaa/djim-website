@@ -51,18 +51,21 @@ const websites = [
 const dashboards = [
   {
     title: 'Sales Analytics Dashboard',
+    slug: 'sales-analytics-dashboard',
     description: 'Interactive dashboard visualizing sales performance across multiple regions. Features drill-down capabilities, predictive analytics, and automated reporting that reduced manual analysis time by 75%.',
     tech: ['Power BI', 'SQL Server', 'Python', 'DAX'],
     metrics: ['500K+ data points', '15 KPIs tracked', 'Real-time updates'],
   },
   {
     title: 'Marketing Campaign Tracker',
+    slug: 'marketing-campaign-tracker',
     description: 'Comprehensive marketing analytics platform tracking campaign performance across channels. Integrated with Google Analytics, Facebook Ads, and email marketing platforms for unified reporting.',
     tech: ['Tableau', 'Google Analytics', 'BigQuery', 'R'],
     metrics: ['20+ data sources', '30% ROI improvement', 'Automated alerts'],
   },
   {
     title: 'Financial Performance Monitor',
+    slug: 'financial-performance-monitor',
     description: 'Real-time financial dashboard for C-suite executives featuring revenue forecasting, expense tracking, and profitability analysis. Helped identify $2M in cost-saving opportunities.',
     tech: ['Looker', 'Snowflake', 'dbt', 'Airflow'],
     metrics: ['99.9% uptime', '< 2s load time', 'Daily refreshes'],
@@ -95,6 +98,13 @@ export default function WorkPage() {
               className="group border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <div className="flex flex-col md:flex-row gap-6">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-md mb-4 object-cover"
+                />
                 <div className="flex-1">
                   <h3 className="font-medium text-lg mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
@@ -102,16 +112,6 @@ export default function WorkPage() {
                   <p className="text-neutral-600 dark:text-neutral-400 mb-4">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span 
-                        key={tech} 
-                        className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
                   <Link 
                     href={project.link}
                     target="_blank"
@@ -137,9 +137,10 @@ export default function WorkPage() {
         
         <div className="grid gap-8">
           {dashboards.map((dashboard, index) => (
-            <div 
-              key={index} 
-              className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6"
+            <Link
+              key={index}
+              href={`/posts/${dashboard.slug}`}
+              className="group block border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <h3 className="font-medium text-lg mb-2">{dashboard.title}</h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-4">
@@ -170,7 +171,7 @@ export default function WorkPage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -192,4 +193,4 @@ export default function WorkPage() {
       </div>
     </section>
   )
-}   
+}  
