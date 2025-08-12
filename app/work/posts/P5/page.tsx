@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export const metadata: Metadata = {
   title: 'Ticket Sales & Churn Prediction',
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <article className="prose dark:prose-invert max-w-none">
       <h1>Ticket Sales & Churn Prediction</h1>
@@ -21,14 +24,53 @@ export default function Page() {
       </ul>
 
       <h2>Dashboard Preview</h2>
-      <Image
-        src="https://picsum.photos/seed/ticketsales/1200/630"
-        alt="Ticket Sales & Churn Prediction Dashboard"
-        width={1200}
-        height={630}
-        className="rounded-md"
-        unoptimized
-      />
+      <button
+        type="button"
+        onClick={() => setIsModalOpen(true)}
+        className="p-0 border-0 bg-transparent cursor-pointer"
+        aria-label="Open dashboard image in modal"
+      >
+        <Image
+          src="https://picsum.photos/seed/ticketsales/1200/630"
+          alt="Ticket Sales & Churn Prediction Dashboard"
+          width={1200}
+          height={630}
+          className="rounded-md"
+          unoptimized
+        />
+      </button>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => setIsModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div
+            className="relative max-w-full max-h-full p-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-2 right-2 text-white text-2xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75"
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+            <Image
+              src="https://picsum.photos/seed/ticketsales/1920/1080"
+              alt="Ticket Sales & Churn Prediction Dashboard enlarged"
+              width={1920}
+              height={1080}
+              className="max-w-full max-h-[80vh] object-contain rounded-md"
+              unoptimized
+            />
+          </div>
+        </div>
+      )}
 
       <h2>Technical Stack</h2>
       <div className="flex space-x-4 mt-4">
