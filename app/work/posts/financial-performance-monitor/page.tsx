@@ -1,24 +1,36 @@
----
-title: "Financial Performance Monitor"
-date: "2025-08-12"
-summary: "Executive dashboard for revenue, margin, and cash—real‑time monitoring with variance analysis and scenario planning."
-tags: ["finance", "fp&a", "dashboards"]
----
+import type { Metadata } from 'next'
 
-# Financial Performance Monitor
+export const metadata: Metadata = {
+  title: 'Financial Performance Monitor',
+  description:
+    'Executive dashboard for revenue, margin, and cash—real‑time monitoring with variance analysis and scenario planning.',
+}
 
-A C‑suite view that keeps revenue, margin, and cash in one place.
+export default function Page() {
+  return (
+    <article className="prose dark:prose-invert max-w-none">
+      <h1>Financial Performance Monitor</h1>
+      <p>A C‑suite view that keeps revenue, margin, and cash in one place.</p>
 
-## Core Metrics
-- Topline revenue, GM%, OPEX by function
-- Unit economics: CAC, LTV, Payback
-- Cash runway + DSOs
+      <h2>Core Metrics</h2>
+      <ul>
+        <li>Topline revenue, GM%, OPEX by function</li>
+        <li>Unit economics: CAC, LTV, Payback</li>
+        <li>Cash runway + DSOs</li>
+      </ul>
 
-## Analysis
-- **Variance vs. plan** and vs. prior year
-- Drill into FX impact and seasonality
-- Scenario planning with driver‑based assumptions
+      <h2>Analysis</h2>
+      <ul>
+        <li><strong>Variance vs. plan</strong> and vs. prior year</li>
+        <li>Drill into FX impact and seasonality</li>
+        <li>Scenario planning with driver‑based assumptions</li>
+      </ul>
 
-## Results
-- Surfaced **$2M** cost‑saving opportunities
-- Standardized monthly reviews across teams
+      <h2>Results</h2>
+      <ul>
+        <li>Surfaced <strong>$2M</strong> cost‑saving opportunities</li>
+        <li>Standardized monthly reviews across teams</li>
+      </ul>
+    </article>
+  )
+}

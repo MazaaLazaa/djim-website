@@ -24,18 +24,10 @@ export default function Page() {
 
       <h2>Approach</h2>
       <ol>
-        <li>
-          <strong>Ingestion:</strong> API pulls (ads), GA4 export, and CRM leads/opps
-        </li>
-        <li>
-          <strong>Normalization:</strong> Channel taxonomies + UTM standards
-        </li>
-        <li>
-          <strong>Attribution:</strong> Last‑touch by default with MTA sensitivity checks
-        </li>
-        <li>
-          <strong>QA:</strong> Anomaly detection and source freshness checks
-        </li>
+        <li><strong>Ingestion:</strong> API pulls (ads), GA4 export, and CRM leads/opps</li>
+        <li><strong>Normalization:</strong> Channel taxonomies + UTM standards</li>
+        <li><strong>Attribution:</strong> Last‑touch by default with MTA sensitivity checks</li>
+        <li><strong>QA:</strong> Anomaly detection and source freshness checks</li>
       </ol>
 
       <h2>Views</h2>
@@ -47,9 +39,7 @@ export default function Page() {
 
       <h2>Outcomes</h2>
       <ul>
-        <li>
-          <strong>+30%</strong> ROI via budget reallocation
-        </li>
+        <li><strong>+30%</strong> ROI via budget reallocation</li>
         <li>Faster weekly readouts with shareable deep links</li>
       </ul>
     </article>
