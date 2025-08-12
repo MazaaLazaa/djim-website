@@ -50,25 +50,39 @@ const websites = [
 
 const dashboards = [
   {
-    title: 'Sales Analytics Dashboard',
+    title: 'Analytics Post 1',
     slug: 'P1',
-    description: 'Interactive dashboard visualizing sales performance across multiple regions. Features drill-down capabilities, predictive analytics, and automated reporting that reduced manual analysis time by 75%.',
-    tech: ['Power BI', 'SQL Server', 'Python', 'DAX'],
-    metrics: ['500K+ data points', '15 KPIs tracked', 'Real-time updates'],
+    description: 'Coming soon — text and images.',
+    tech: [],
+    metrics: [],
   },
   {
-    title: 'Marketing Campaign Tracker',
+    title: 'Analytics Post 2',
     slug: 'P2',
-    description: 'Comprehensive marketing analytics platform tracking campaign performance across channels. Integrated with Google Analytics, Facebook Ads, and email marketing platforms for unified reporting.',
-    tech: ['Tableau', 'Google Analytics', 'BigQuery', 'R'],
-    metrics: ['20+ data sources', '30% ROI improvement', 'Automated alerts'],
+    description: 'Coming soon — text and images.',
+    tech: [],
+    metrics: [],
   },
   {
-    title: 'Financial Performance Monitor',
+    title: 'Analytics Post 3',
     slug: 'P3',
-    description: 'Real-time financial dashboard for C-suite executives featuring revenue forecasting, expense tracking, and profitability analysis. Helped identify $2M in cost-saving opportunities.',
-    tech: ['Looker', 'Snowflake', 'dbt', 'Airflow'],
-    metrics: ['99.9% uptime', '< 2s load time', 'Daily refreshes'],
+    description: 'Coming soon — text and images.',
+    tech: [],
+    metrics: [],
+  },
+  {
+    title: 'Analytics Post 4',
+    slug: 'P4',
+    description: 'Coming soon — text and images.',
+    tech: [],
+    metrics: [],
+  },
+  {
+    title: 'Analytics Post 5',
+    slug: 'P5',
+    description: 'Coming soon — text and images.',
+    tech: [],
+    metrics: [],
   },
 ]
 
@@ -149,7 +163,7 @@ export default function WorkPage() {
           {dashboards.map((dashboard, index) => (
             <Link
               key={index}
-              href={`/posts/${dashboard.slug}/page`}
+              href={`/posts/${dashboard.slug}`}
               className="group block border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <h3 className="font-medium text-lg mb-2">{dashboard.title}</h3>
@@ -157,30 +171,24 @@ export default function WorkPage() {
                 {dashboard.description}
               </p>
               
-              <div className="mb-4">
-                <p className="text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Key Metrics:</p>
-                <div className="flex flex-wrap gap-3">
-                  {dashboard.metrics.map((metric) => (
-                    <span 
-                      key={metric} 
-                      className="text-sm text-blue-600 dark:text-blue-400"
-                    >
-                      • {metric}
-                    </span>
+              {dashboard.metrics.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Key Metrics:</p>
+                  <div className="flex flex-wrap gap-3">
+                    {dashboard.metrics.map((metric) => (
+                      <span key={metric} className="text-sm text-blue-600 dark:text-blue-400">• {metric}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {dashboard.tech.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {dashboard.tech.map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 rounded">{tech}</span>
                   ))}
                 </div>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {dashboard.tech.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              )}
             </Link>
           ))}
         </div>
