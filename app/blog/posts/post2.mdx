@@ -1,0 +1,115 @@
+---
+title: "NBA Data Sources: Free vs Paid, Storage, and Example Workflow"
+publishedAt: "2025-08-12"
+summary: "A guide to retrieving NBA data for analytics—covering top free and paid sources, API limits, best storage solutions, and example workflows."
+---
+
+Collecting quality NBA data is the first step in any analytics project. Whether you’re building scouting dashboards, predictive models, or historical visualizations, knowing **where** and **how** to get the data matters.
+
+In this post, we’ll cover:
+1. Top free and paid NBA data sources, with request limits.
+2. Best free and paid storage options for analytics.
+3. A practical example workflow for using the data.
+
+---
+
+## 1) Top 3 NBA Data Sources
+
+### **Free Options**
+#### 1. `nba_api` (Unofficial Python Wrapper for stats.nba.com)
+- **Access**: Free (data from NBA.com public endpoints)
+- **Request Limits**: No official limit, but heavy usage can trigger temporary IP bans (practical: ~10 requests/sec with short pauses)
+- **Pros**: Extensive stats (box scores, play-by-play, shot charts, tracking data)
+- **Cons**: API can change without notice; rate-limiting not documented
+- **Docs**: [nba_api on GitHub](https://github.com/swar/nba_api)
+
+#### 2. Basketball-Reference Scraping
+- **Access**: Free (HTML pages)
+- **Request Limits**: Informal — keep < 20 requests/min to avoid blocking
+- **Pros**: Historical data back to 1946, advanced metrics
+- **Cons**: No official API; scraping required
+
+#### 3. ESPN / Yahoo! Sports Scraping
+- **Access**: Free (public pages)
+- **Request Limits**: Similar informal limits (~10-15 req/min recommended)
+- **Pros**: Injury reports, depth charts, fantasy points
+- **Cons**: Structure changes often, less comprehensive than NBA.com
+
+---
+
+### **Paid Options**
+#### 1. Second Spectrum (Official Tracking Data Provider for NBA Teams)
+- **Access**: Paid (enterprise contracts only)
+- **Request Limits**: Not publicly disclosed — negotiated per client
+- **Pros**: Optical tracking (player coordinates, ball position) for every frame
+- **Cons**: Expensive; restricted to teams, media, and partners
+
+#### 2. Synergy Sports
+- **Access**: Paid subscription
+- **Request Limits**: Based on plan — usually hundreds of API calls/day
+- **Pros**: Play-type breakdowns, possession tagging, video integration
+- **Cons**: High cost; not open to casual users
+
+#### 3. Sportradar
+- **Access**: Paid API plans
+- **Request Limits**: Defined by subscription tier (e.g., 1,000+ requests/day)
+- **Pros**: Real-time data feeds, live play-by-play, betting odds integration
+- **Cons**: Costly for large-scale usage
+
+---
+
+## 2) Best Ways to Store the Data
+
+### **Free Storage Options**
+- **SQLite**: Lightweight, no server, great for personal projects.
+- **Google Sheets**: For small datasets, collaborative, integrates with Google Data Studio.
+- **PostgreSQL (Local)**: Powerful relational DB for structured data analysis.
+
+### **Paid Storage Options**
+- **AWS S3 + Athena**: Object storage with SQL query capability; scales well.
+- **Snowflake**: Cloud data warehouse optimized for analytics.
+- **Google BigQuery**: Serverless, handles large datasets with fast querying.
+
+---
+
+## 3) Example Workflow: From Data Retrieval to Insight
+
+### **Goal**: Create a Player Shot Efficiency Dashboard
+
+**Step 1: Retrieve Data**
+- Use `nba_api` to pull shot chart detail for all players in the current season.
+- Store results in a PostgreSQL database.
+
+**Step 2: Transform Data**
+- Clean shot coordinates and classify zones (corner 3, above the break, mid-range, paint).
+- Calculate FG%, eFG%, and Points per Shot by zone.
+
+**Step 3: Visualize**
+- Use Python (Matplotlib or Plotly) to create a court heatmap.
+- Or connect PostgreSQL to Tableau / Power BI for an interactive version.
+
+**Step 4: Deliver**
+- Publish as an internal scouting dashboard.
+- Include filters for player, team, date range.
+
+---
+
+## Summary Table
+
+| Source           | Cost     | Limit Type           | Best For                                    |
+|------------------|----------|----------------------|---------------------------------------------|
+| nba_api          | Free     | Informal rate limits | Comprehensive box & play-by-play stats      |
+| Bball Reference  | Free     | Informal rate limits | Historical stats & advanced metrics         |
+| Second Spectrum  | Paid     | Contract-based       | Tracking data for professional teams        |
+| Synergy Sports   | Paid     | Plan-based           | Play-type breakdowns & video integration    |
+| Sportradar       | Paid     | Tier-based           | Real-time feeds & betting odds              |
+
+---
+
+## Closing Thoughts
+
+Your choice of data source depends on **budget**, **required granularity**, and **project goals**. For most public-facing projects, `nba_api` + PostgreSQL (or BigQuery for scale) is a strong, cost-effective stack.
+
+If you’re working with a team or media outlet, paid providers unlock richer datasets and real-time capabilities.
+
+Next up, I’ll share a post on **cleaning and modeling NBA data** to prepare it for scouting and predictive analytics.
