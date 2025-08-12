@@ -63,3 +63,70 @@ Iterative testing with users can help refine visualizations to meet audience nee
 ## Conclusion
 
 Mastering the art of data visualization empowers individuals and organizations to unlock the full potential of their data. By transforming numbers into compelling visuals, data visualization drives insight, understanding, and informed action.
+
+
+---
+title: 'Building a Reproducible NBA Analytics Pipeline'
+publishedAt: '2025-08-12'
+summary: 'Learn how to automate the retrieval, cleaning, and reporting of NBA data so every game’s stats flow seamlessly into scouting dashboards and predictive models.'
+---
+
+![NBA Analytics Pipeline](/images/nba-analytics-pipeline.jpg)
+
+After covering **retrieving NBA data** and **cleaning & modeling**, the next step is making the process *automatic*. A reproducible analytics pipeline ensures that after each game, your datasets, dashboards, and models update without manual work.
+
+This is crucial for scouts, analysts, and front offices who need fresh insights daily.
+
+---
+
+## 1) Key Components of the Pipeline
+
+**Data Ingestion**
+- Sources: `nba_api`, Basketball-Reference, or paid feeds.
+- Scheduler: Airflow, Prefect, or GitHub Actions.
+- Frequency: Nightly or near real-time.
+
+**Data Storage**
+- Raw Layer: Store original data (CSV, Parquet) in S3, GCS, or local backups.
+- Clean Layer: Store processed tables in PostgreSQL, BigQuery, or Snowflake.
+
+**Data Transformation**
+- Use dbt or custom Python scripts.
+- Apply consistent cleaning & modeling rules (fact/dim tables).
+
+**Analytics & Models**
+- Calculate metrics: Net Rating, eFG%, TS%, lineup efficiency.
+- Run predictive models: Win probability, player impact.
+
+**Visualization & Reporting**
+- Tools: Tableau, Power BI, or Streamlit.
+- Automated refresh after data load.
+
+---
+
+## 2) Example Workflow
+
+1. **Trigger**: Airflow runs every night after games finish.
+2. **Extract**: Python scripts pull game stats via `nba_api`.
+3. **Load**: Data stored in a cloud warehouse (BigQuery).
+4. **Transform**: dbt scripts clean and model the data.
+5. **Analyze**: SQL or Python calculates KPIs and updates models.
+6. **Visualize**: Tableau dashboard refreshes automatically.
+7. **Deliver**: Link sent to coaches/scouts every morning.
+
+---
+
+## 3) Benefits of Automation
+
+- **Speed**: Latest data available without delays.
+- **Accuracy**: Consistent cleaning & metrics definitions.
+- **Scalability**: Add new seasons or competitions easily.
+- **Focus**: Analysts spend time on insights, not data wrangling.
+
+---
+
+## Conclusion
+
+A reproducible NBA analytics pipeline is the backbone of modern basketball analysis. By automating the flow from raw data to ready-to-use insights, teams can respond faster, plan smarter, and make data a daily part of decision-making.
+
+Next, we’ll explore **advanced visualization techniques** to make scouting and performance dashboards more intuitive and impactful.

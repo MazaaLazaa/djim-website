@@ -37,3 +37,64 @@ This community not only helps newcomers climb the steep learning curve but also 
 Vim is not just a text editor; it's a way of approaching coding with efficiency and thoughtfulness. Its steep learning curve is a small price to pay for the speed, flexibility, and control it offers.
 
 For those willing to invest the time to master its commands, Vim proves to be an invaluable tool that enhances productivity and enjoyment in coding. In an age of ever-changing development tools, the continued popularity of Vim is a testament to its enduring value and utility.
+
+---
+title: 'Advanced Visualization Techniques for NBA Scouting Dashboards'
+publishedAt: '2025-08-12'
+summary: 'Learn how to present NBA data in a way that delivers immediate, actionable insights to coaches, scouts, and analysts.'
+---
+
+After setting up a **reproducible NBA analytics pipeline**, the next step is creating dashboards that turn raw stats into instant basketball intelligence.  
+The best scouting dashboards go beyond tables — they make patterns *pop*.
+
+---
+
+## 1) Choosing the Right Visualization for the Right Question
+
+- **Shot Charts (Hexbins / Heatmaps)**: Best for showing shooting efficiency and volume by location.
+- **Four Factors Bar Charts**: Visualize team performance in eFG%, TOV%, ORB%, and FT Rate in one glance.
+- **Lineup Network Graphs**: Display player combinations and their net ratings.
+- **Trend Lines**: Show player or team performance over time (e.g., TS% trend across the season).
+
+---
+
+## 2) Interactivity = Insight
+
+Static charts are good for reports, but interactive dashboards let analysts:
+- Filter by player, opponent, date range.
+- Hover for exact stat values.
+- Toggle metrics (e.g., FG% vs eFG%).
+
+**Tools for Interactivity**:
+- **Tableau / Power BI**: Drag-and-drop interactivity, built-in filters.
+- **Plotly Dash / Streamlit**: Custom Python apps with flexible UI components.
+
+---
+
+## 3) Example Workflow: Player Scouting Dashboard
+
+1. **Data**: Pull shot chart data via `nba_api`.
+2. **Process**: Aggregate by shot zone and season split (regular season vs playoffs).
+3. **Visualize**:
+   - Heatmap of shot efficiency.
+   - Line chart of usage rate over time.
+   - Four Factors radar chart for player vs league average.
+4. **Deliver**: Share interactive link with coaching staff.
+
+---
+
+## 4) Design Tips for Maximum Impact
+
+- **Use Consistent Colors**: Assign team colors for quick recognition.
+- **Highlight Outliers**: Use conditional formatting to call out unusually high or low values.
+- **Keep It Simple**: Avoid clutter — focus on 2–3 key visuals per view.
+- **Mobile-Friendly**: Ensure readability on tablets and phones for on-the-go scouting.
+
+---
+
+## Conclusion
+
+Advanced visualization bridges the gap between **data** and **decisions**.  
+A great NBA scouting dashboard should answer the most important questions *at a glance*, while allowing deeper dives when needed.
+
+In the next post, we’ll explore **integrating video and data** so every chart can be paired with game film for richer context.
