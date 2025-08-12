@@ -1,22 +1,38 @@
-import { BlogPosts } from 'app/components/posts'
+import { ImageResponse } from 'next/og'
 
-export default function Page() {
-  return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
-      <p className="mb-4">
-        {`Welcome to my corner of the web —
-         I’m a bilingual strategist and data-driven marketer with a passion for turning ideas into measurable impact.
-          Here you’ll find my work and projects, 
-          where creative thinking meets analytical precision,
-           all crafted with focus and intention.
-`}
-      </p>
-      <div className="my-8">
-        <BlogPosts />
+export async function GET() {
+  return ImageResponse(
+    (
+      <div
+        style={{
+          backgroundColor: 'black',
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          textAlign: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          flexWrap: 'nowrap',
+        }}
+      >
+        <h1
+          style={{
+            fontSize: 60,
+            fontStyle: 'normal',
+            letterSpacing: '-0.025em',
+            color: 'white',
+            margin: '0 30px',
+            whiteSpace: 'pre-wrap',
+          }}
+        >
+          My Portfolio
+        </h1>
       </div>
-    </section>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    }
   )
 }
