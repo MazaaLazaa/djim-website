@@ -26,25 +26,25 @@ function ArrowIcon() {
 
 const websites = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A modern, responsive e-commerce solution built with Next.js and Stripe integration. Features include real-time inventory management, secure payment processing, and an intuitive admin dashboard.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'PostgreSQL'],
-    link: 'https://example-ecommerce.com',
-    image: '/api/placeholder/600/400',
+    title: 'Pulaar',
+    description: 'High-end, unisex ready-to-wear clothing brand with Afro-European influences.',
+    tech: [],
+    link: 'https://pulaar.co/',
+    image: '/images/pulaar-preview.jpg',
   },
   {
-    title: 'SaaS Dashboard',
-    description: 'Enterprise-level SaaS application with role-based access control, real-time collaboration features, and comprehensive analytics. Serves over 10,000 daily active users.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Redis', 'WebSocket'],
-    link: 'https://example-saas.com',
-    image: '/api/placeholder/600/400',
+    title: 'Sophie Lukacs',
+    description: 'Official website for Sophie Lukacs, a kora player and composer.',
+    tech: [],
+    link: 'https://www.sophielukacs.com/',
+    image: '/images/sophie-lukacs-preview.jpg',
   },
   {
-    title: 'Corporate Website',
-    description: 'Clean and professional corporate website with a focus on performance and SEO. Achieved 98+ Lighthouse scores across all metrics with optimized image loading and caching strategies.',
-    tech: ['Next.js', 'Sanity CMS', 'Vercel', 'Framer Motion'],
-    link: 'https://example-corporate.com',
-    image: '/api/placeholder/600/400',
+    title: 'Szapor',
+    description: 'Website for Szapor.',
+    tech: [],
+    link: 'https://szapor.com/',
+    image: '/images/szapor-preview.jpg',
   },
 ]
 
@@ -95,6 +95,15 @@ export default function WorkPage() {
               className="group border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <div className="flex flex-col md:flex-row gap-6">
+                <Link href={project.link} target="_blank" rel="noopener noreferrer" className="block flex-shrink-0">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto rounded-md object-cover"
+                  />
+                </Link>
                 <div className="flex-1">
                   <h3 className="font-medium text-lg mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
@@ -102,16 +111,6 @@ export default function WorkPage() {
                   <p className="text-neutral-600 dark:text-neutral-400 mb-4">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span 
-                        key={tech} 
-                        className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
                   <Link 
                     href={project.link}
                     target="_blank"
@@ -192,4 +191,4 @@ export default function WorkPage() {
       </div>
     </section>
   )
-}   
+}  
