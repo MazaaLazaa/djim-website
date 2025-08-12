@@ -30,21 +30,21 @@ const websites = [
     description: 'High-end, unisex ready-to-wear clothing brand with Afro-European influences.',
     tech: [],
     link: 'https://pulaar.co/',
-    image: '/images/pulaar-preview.jpg',
+    image: 'https://image.thum.io/get/width/1200/crop/800/https://pulaar.co/',
   },
   {
     title: 'Sophie Lukacs',
     description: 'Official website for Sophie Lukacs, a kora player and composer.',
     tech: [],
     link: 'https://www.sophielukacs.com/',
-    image: '/images/sophie-lukacs-preview.jpg',
+    image: 'https://image.thum.io/get/width/1200/crop/800/https://www.sophielukacs.com/',
   },
   {
     title: 'Szapor',
     description: 'Website for Szapor.',
     tech: [],
     link: 'https://szapor.com/',
-    image: '/images/szapor-preview.jpg',
+    image: 'https://image.thum.io/get/width/1200/crop/800/https://szapor.com/',
   },
 ]
 
@@ -102,6 +102,7 @@ export default function WorkPage() {
                     width={600}
                     height={400}
                     className="w-full h-auto rounded-md object-cover"
+                    unoptimized
                   />
                 </Link>
                 <div className="flex-1">
