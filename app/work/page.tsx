@@ -51,35 +51,35 @@ const websites = [
 const dashboards = [
   {
     title: 'Analytics Post 1',
-    slug: 'P1',
+    href: '/work/posts/P1',
     description: 'Coming soon — text and images.',
     tech: [],
     metrics: [],
   },
   {
     title: 'Analytics Post 2',
-    slug: 'P2',
+    href: '/work/posts/P2',
     description: 'Coming soon — text and images.',
     tech: [],
     metrics: [],
   },
   {
     title: 'Analytics Post 3',
-    slug: 'P3',
+    href: '/work/posts/P3',
     description: 'Coming soon — text and images.',
     tech: [],
     metrics: [],
   },
   {
     title: 'Analytics Post 4',
-    slug: 'P4',
+    href: '/work/posts/P4',
     description: 'Coming soon — text and images.',
     tech: [],
     metrics: [],
   },
   {
     title: 'Analytics Post 5',
-    slug: 'P5',
+    href: '/work/posts/P5',
     description: 'Coming soon — text and images.',
     tech: [],
     metrics: [],
@@ -163,7 +163,7 @@ export default function WorkPage() {
           {dashboards.map((dashboard, index) => (
             <Link
               key={index}
-              href={`/work/posts/${dashboard.slug}`}
+              href={dashboard.href}
               className="group block border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <h3 className="font-medium text-lg mb-2">{dashboard.title}</h3>
@@ -211,4 +211,4 @@ export default function WorkPage() {
       </div>
     </section>
   )
-}  
+} 
