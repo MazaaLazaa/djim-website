@@ -1,0 +1,125 @@
+---
+title: "Cleaning and Modeling NBA Data for Scouting & Predictive Analytics"
+publishedAt: "2025-08-12"
+summary: "A step-by-step guide to cleaning, structuring, and modeling NBA data to prepare it for scouting reports, advanced metrics, and predictive models."
+---
+
+Once you’ve retrieved NBA data from your chosen source, the next challenge is **turning raw data into clean, structured datasets** ready for analysis. Dirty or inconsistent data can lead to misleading results, so this step is critical before building scouting dashboards or predictive models.
+
+---
+
+## 1) Why Cleaning & Modeling Matters
+
+- **Accuracy**: Eliminates errors, missing values, and duplicates.
+- **Consistency**: Standardizes formats (e.g., date formats, player names).
+- **Efficiency**: Prepares tables for fast querying and joins.
+- **Scalability**: Allows the same process to run on multiple seasons or data sources.
+
+---
+
+## 2) Example Data Cleaning Workflow
+
+**Step 1: Import & Inspect**
+- Load your raw data into Python (pandas) or SQL.
+- Check column names, types, and null values.
+- Identify duplicate rows.
+
+```python
+import pandas as pd
+
+# Load raw shot data
+df = pd.read_csv("shots_raw.csv")
+
+# Inspect structure
+print(df.info())
+
+# Check missing values
+print(df.isnull().sum())
+```
+
+**Step 2: Standardize Formats**
+- Convert dates to `YYYY-MM-DD`.
+- Standardize player/team names (merge aliases).
+- Convert coordinates (e.g., shot chart `LOC_X`, `LOC_Y`) to feet or defined shot zones.
+
+**Step 3: Handle Missing Data**
+- Drop irrelevant rows (e.g., null shot distance for free throws).
+- Fill in missing values where logical (e.g., team abbreviations).
+
+**Step 4: Filter & Enrich**
+- Add season columns (`2024-25`).
+- Tag possessions with play type (PnR, ISO) if available.
+- Create derived metrics (e.g., shot zone efficiency, points per possession).
+
+---
+
+## 3) Modeling the Data
+
+Once cleaned, structure it into **analytics-friendly tables**:
+
+- **Fact Tables**: Shots, possessions, games, lineups.
+- **Dimension Tables**: Players, teams, arenas, seasons.
+
+**Example Schema:**
+
+```
+fact_shots
+- game_id
+- player_id
+- team_id
+- shot_zone
+- make_miss
+- shot_distance
+- points
+
+dim_players
+- player_id
+- name
+- position
+- height
+- weight
+```
+
+**Benefits:**
+- Easy joins between tables.
+- Supports aggregations (FG% by zone, lineup net rating).
+- Reduces duplication and improves query speed.
+
+---
+
+## 4) Preparing for Scouting Reports
+
+With clean, modeled data, you can:
+- Generate **player shot charts** (heatmaps by efficiency or volume).
+- Compare **lineup efficiencies** over multiple games.
+- Create **opponent Four Factors dashboards** for pre-game prep.
+- Build **injury impact models** to estimate replacement value.
+
+---
+
+## 5) Preparing for Predictive Analytics
+
+Clean, structured data enables:
+- **Win probability models** using logistic regression.
+- **Player similarity scores** using k-means clustering.
+- **Expected points models** using gradient boosting (XGBoost, LightGBM).
+- **Schedule fatigue analysis** incorporating travel and rest days.
+
+---
+
+## 6) Example End-to-End Workflow
+
+1. **Retrieve**: Pull play-by-play and shot data via [`nba_api`](https://github.com/swar/nba_api) or paid sources.
+2. **Store**: Save to PostgreSQL, BigQuery, or Snowflake.
+3. **Clean**: Remove duplicates, fix name inconsistencies, standardize formats.
+4. **Model**: Create fact & dimension tables with season tagging.
+5. **Analyze**: Use SQL/Python to calculate metrics and run models.
+6. **Visualize**: Create dashboards in Tableau, Power BI, or Streamlit.
+7. **Deliver**: Export scouting PDFs or publish interactive dashboards.
+
+---
+
+## Closing
+
+Cleaning and modeling NBA data is the bridge between raw stats and actionable basketball intelligence.  
+In the next post, we’ll explore **building a reproducible analytics pipeline** so every game’s data flows automatically into your reports, dashboards, and predictive models — without manual intervention.
