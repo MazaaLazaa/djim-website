@@ -52,35 +52,35 @@ const dashboards = [
   {
     title: 'Analytics Post 1',
     href: '/work/posts/P1',
-    description: 'Coming soon — text and images. (Built with Power BI and SQL)',
+    description: 'Coming soon — text and images.',
     tech: ['Power BI', 'SQL'],
     metrics: [],
   },
   {
     title: 'Analytics Post 2',
     href: '/work/posts/P2',
-    description: 'Coming soon — text and images. (Built with Tableau and Python)',
+    description: 'Coming soon — text and images.',
     tech: ['Tableau', 'Python'],
     metrics: [],
   },
   {
     title: 'Analytics Post 3',
     href: '/work/posts/P3',
-    description: 'Coming soon — text and images. (Built with Looker Studio and BigQuery)',
+    description: 'Coming soon — text and images.',
     tech: ['Looker Studio', 'BigQuery'],
     metrics: [],
   },
   {
     title: 'Analytics Post 4',
     href: '/work/posts/P4',
-    description: 'Coming soon — text and images. (Built with Excel and VBA)',
+    description: 'Coming soon — text and images.',
     tech: ['Excel', 'VBA'],
     metrics: [],
   },
   {
     title: 'Analytics Post 5',
     href: '/work/posts/P5',
-    description: 'Coming soon — text and images. (Built with R Shiny and PostgreSQL)',
+    description: 'Coming soon — text and images.',
     tech: ['R Shiny', 'PostgreSQL'],
     metrics: [],
   },
@@ -183,9 +183,16 @@ export default function WorkPage() {
               )}
               
               {dashboard.tech.length > 0 && (
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  <span className="font-medium">Stack:</span> {dashboard.tech.join(' • ')}
-                </p>
+                <div className="flex flex-wrap gap-2">
+                  {dashboard.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="border border-neutral-300 dark:border-neutral-700 rounded px-2 py-0.5 text-sm text-neutral-700 dark:text-neutral-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               )}
             </Link>
           ))}
