@@ -163,7 +163,7 @@ export default function WorkPage() {
           {dashboards.map((dashboard, index) => (
             <Link
               key={index}
-              href={`/posts/${dashboard.slug}`}
+              href={`/posts/${dashboard.slug}/page`}
               className="group block border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
               <h3 className="font-medium text-lg mb-2">{dashboard.title}</h3>
