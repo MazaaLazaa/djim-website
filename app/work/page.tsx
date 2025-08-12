@@ -111,7 +111,7 @@ export default function WorkPage() {
               key={index} 
               className="group border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
             >
-              <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex flex-col gap-6">
                 <Link href={project.link} target="_blank" rel="noopener noreferrer" className="block flex-shrink-0">
                   <Image
                     src={project.image}
@@ -122,7 +122,7 @@ export default function WorkPage() {
                     unoptimized
                   />
                 </Link>
-                <div className="flex-1">
+                <div>
                   <h3 className="font-medium text-lg mb-2">
                     <Link
                       href={project.link}
