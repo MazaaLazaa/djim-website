@@ -1,0 +1,111 @@
+---
+title: "From Box Scores to Shot Charts: Crafting My NBA Analytics Playbook"
+publishedAt: "2025-08-12"
+summary: "How I use SQL, Python, and visualization to turn NBA box scores and tracking data into actionable insights for teams."
+---
+
+Basketball is more than a sport—it's a constant stream of data, decisions, and adjustments. My NBA analytics work focuses on transforming raw numbers into competitive advantages for coaches, scouts, and front offices. This post showcases my methods, example projects, and the deliverables I can bring to a team.
+
+---
+
+## Why analytics matters in the NBA
+
+From rotations to late-game plays, every decision benefits from clear, timely insights. Possession-based metrics allow fair comparisons regardless of pace, while advanced visuals make complex patterns easy to digest.
+
+---
+
+## 1) Core Metrics & Foundations
+
+I build every analysis on a strong foundation of efficiency and possession stats:
+
+- **eFG%**: `(FGM + 0.5 * 3PM) / FGA`
+- **TS%**: `PTS / (2 * (FGA + 0.44 * FTA))`
+- **Usage%**: `100 * ((FGA + 0.44*FTA + TOV) * (TmMP/5)) / (MP * (TmFGA + 0.44*TmFTA + TmTOV))`
+- **Four Factors**: eFG% (40%), TOV% (25%), OREB% (20%), FTr (15%)
+
+> Tools: SQL for aggregation, Python/pandas for transformations, Tableau or Power BI for delivery.
+
+---
+
+## 2) Project: Shot Profile & Expected Value
+
+**Goal:** Identify where a player gains or loses points compared to league norms.
+
+**Method:**
+1. Aggregate shots by player and zone.
+2. Calculate zone-level efficiency and expected points.
+3. Visualize with a court heatmap.
+
+**Deliverable:** A concise report with visuals and actionable notes, e.g., “Increase corner 3 frequency; reduce contested long 2s.”
+
+---
+
+## 3) Project: Game Score Consistency Tracker
+
+**Goal:** Measure reliability and detect role changes.
+
+- Compute Game Score per game.
+- Overlay Usage% and TS% trends.
+- Annotate streaks, slumps, and usage shifts.
+
+**Outcome:** Coaches can see not just how well a player performed, but the context of their role.
+
+---
+
+## 4) Project: Team Four Factors Dashboard
+
+**Goal:** Deliver a 90-second read on an opponent's strengths and weaknesses.
+
+**Features:**
+- KPI cards for Net Rating, ORtg, DRtg, Pace
+- Bar charts comparing eFG%, TOV%, OREB%, FTr vs. league averages
+- Tactical insights for game planning
+
+---
+
+## 5) Project: Player Archetypes & Matchup Fit
+
+**Goal:** Provide matchup guidance and roster planning tools.
+
+- Use clustering (PCA + k-means or HDBSCAN) on features like shot diet, assist rate, defensive metrics.
+- Produce radar charts per archetype.
+- Link archetypes to matchup strategies.
+
+---
+
+## 6) My Data Pipeline
+
+1. **Acquire:** NBA.com data exports, `nba_api`, and official box scores.
+2. **Model:** dbt for clean, versioned transformations.
+3. **Analyze:** Python and SQL for metrics and models.
+4. **Visualize:** Interactive dashboards and custom plots.
+5. **Deliver:** Reproducible code + stakeholder-friendly summaries.
+
+---
+
+## 7) Quick Reference Formulas
+
+```text
+Possessions ≈ 0.5 * [(TmFGA + 0.4*TmFTA − TmOREB + TmTOV) + (OppFGA + 0.4*OppFTA − OppOREB + OppTOV)]
+ORtg = 100 * Points / Possessions
+DRtg = 100 * OppPoints / Possessions
+Net Rating = ORtg − DRtg
+AST% = 100 * AST / (((MP/(TmMP/5)) * TmFGM) − FGM)
+OREB% = 100 * (OREB*(TmMP/5)) / (MP*(TmOREB + OppDREB))
+```
+
+---
+
+## 8) Results Worth Highlighting
+
+- +0.12 expected points/shot from corner 3 emphasis.
+- +7.4 Net Rating in 200+ possessions for a small-ball unit.
+- Opponent PPP drop from 0.99 → 0.90 using adjusted PnR coverage.
+
+---
+
+## Closing
+
+I bring a blend of technical skill, basketball IQ, and a focus on actionable outcomes. Whether it's a shot chart for a player, a scouting dashboard for a team, or a season-long analysis, I aim to make data a difference-maker.
+
+If you'd like to see live dashboards or code examples, let's connect.
