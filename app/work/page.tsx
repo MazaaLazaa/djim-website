@@ -53,35 +53,35 @@ const dashboards = [
     title: 'Analytics Post 1',
     href: '/work/posts/P1',
     description: 'Coming soon — text and images. (Built with Power BI and SQL)',
-    tech: [],
+    tech: ['Power BI', 'SQL'],
     metrics: [],
   },
   {
     title: 'Analytics Post 2',
     href: '/work/posts/P2',
     description: 'Coming soon — text and images. (Built with Tableau and Python)',
-    tech: [],
+    tech: ['Tableau', 'Python'],
     metrics: [],
   },
   {
     title: 'Analytics Post 3',
     href: '/work/posts/P3',
     description: 'Coming soon — text and images. (Built with Looker Studio and BigQuery)',
-    tech: [],
+    tech: ['Looker Studio', 'BigQuery'],
     metrics: [],
   },
   {
     title: 'Analytics Post 4',
     href: '/work/posts/P4',
     description: 'Coming soon — text and images. (Built with Excel and VBA)',
-    tech: [],
+    tech: ['Excel', 'VBA'],
     metrics: [],
   },
   {
     title: 'Analytics Post 5',
     href: '/work/posts/P5',
     description: 'Coming soon — text and images. (Built with R Shiny and PostgreSQL)',
-    tech: [],
+    tech: ['R Shiny', 'PostgreSQL'],
     metrics: [],
   },
 ]
@@ -183,11 +183,9 @@ export default function WorkPage() {
               )}
               
               {dashboard.tech.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {dashboard.tech.map((tech) => (
-                    <span key={tech} className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 rounded">{tech}</span>
-                  ))}
-                </div>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  <span className="font-medium">Stack:</span> {dashboard.tech.join(' • ')}
+                </p>
               )}
             </Link>
           ))}
