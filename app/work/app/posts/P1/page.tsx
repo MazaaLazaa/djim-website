@@ -21,9 +21,7 @@ export default function Page() {
 
       <h2>Analysis</h2>
       <ul>
-        <li>
-          <strong>Variance vs. plan</strong> and vs. prior year
-        </li>
+        <li><strong>Variance vs. plan</strong> and vs. prior year</li>
         <li>Drill into FX impact and seasonality</li>
         <li>Scenario planning with driver‑based assumptions</li>
       </ul>

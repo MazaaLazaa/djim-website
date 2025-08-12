@@ -11,8 +11,7 @@ export default function Page() {
     <article className="prose dark:prose-invert max-w-none">
       <h1>Marketing Campaign Tracker</h1>
       <p>
-        A centralized view of <strong>paid</strong>, <strong>owned</strong>, and{' '}
-        <strong>earned</strong> performance so teams make decisions on the same numbers.
+        A centralized view of <strong>paid</strong>, <strong>owned</strong>, and <strong>earned</strong> performance so teams make decisions on the same numbers.
       </p>
 
       <h2>What it Solves</h2>

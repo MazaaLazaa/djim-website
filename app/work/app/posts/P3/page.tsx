@@ -39,11 +39,6 @@ export default function Page() {
         <li><strong>−75%</strong> manual reporting time</li>
         <li>Faster territory planning and promo timing</li>
       </ul>
-
-      <blockquote>
-        Want the implementation notes (measures, refresh config, and governance)? I can share a
-        sanitized pbix / SQL pattern on request.
-      </blockquote>
     </article>
   )
 }
